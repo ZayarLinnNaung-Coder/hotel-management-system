@@ -1,4 +1,4 @@
-package com.tcobep.solution.hotelmanagementsystem;
+package com.tcobep.solution.hms;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
