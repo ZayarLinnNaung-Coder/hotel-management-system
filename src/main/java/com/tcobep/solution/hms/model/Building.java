@@ -1,4 +1,4 @@
-package com.tcobep.solution.hotelmanagementsystem.model;
+package com.tcobep.solution.hms.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

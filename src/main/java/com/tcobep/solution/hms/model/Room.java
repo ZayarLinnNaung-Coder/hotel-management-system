@@ -1,4 +1,4 @@
-package com.tcobep.solution.hotelmanagementsystem.model;
+package com.tcobep.solution.hms.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

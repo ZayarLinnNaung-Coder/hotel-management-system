@@ -1,4 +1,4 @@
-package com.tcobep.solution.hotelmanagementsystem.domain;
+package com.tcobep.solution.hms.domain;
 
 import lombok.*;
 
