@@ -1,8 +1,6 @@
 package com.tcobep.solution.hms.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
@@ -12,20 +10,31 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "GUEST")
 public class Guest {
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "ID")
+    private String id;
 
-    @Column(nullable = false)
+    @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
 
+    @Column(name = "LAST_NAME")
     private String lastName;
+
+    @Column(name = "EMAIL")
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "NRC", nullable = false)
     private String nrc;
 
+    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
+
+    @Column(name = "ADDRESS")
     private String address;
+
+    @Column(name = "NOTE")
     private String note;
 }

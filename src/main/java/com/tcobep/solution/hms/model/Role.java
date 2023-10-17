@@ -1,22 +1,19 @@
 package com.tcobep.solution.hms.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Table(name = "FLOOR")
-public class Floor {
+@NoArgsConstructor
+@Table(name = "ROLE")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
@@ -27,12 +24,15 @@ public class Floor {
 
     @Column(name = "DESCRIPTION")
     private String description;
+    @ManyToMany
+    @JoinTable(
+            name = "ROLE_AUTHORITY",
+            joinColumns = @JoinColumn(name = "ROLE_ID"),
+            inverseJoinColumns = @JoinColumn(name = "AUTHORITY_ID")
+    )
+    private List<Authority> authorities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "floor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Room> roomList;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "building_id")
-    private Building building;
+    public Role(String name) {
+        this.name = name;
+    }
 }

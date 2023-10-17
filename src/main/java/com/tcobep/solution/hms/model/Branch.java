@@ -6,27 +6,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-@Table(name = "BUILDING")
-public class Building {
+@Table(name = "BRANCH")
+public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "ROLE")
+    private String role;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
-
-    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Floor> floorList;
 }
